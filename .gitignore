@@ -1,0 +1,37 @@
+# Dependencies
+node_modules
+
+# Next.js
+.next
+out
+next-env.d.ts
+*.tsbuildinfo
+
+# Environment
+.env
+.env.*
+
+# Storybook
+storybook-static
+
+# Claude Code
+CLAUDE.local.md
+
+# Logs
+*.log
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.sw?
+
+# Deployment
+.vercel
+
+# Local reference files (not part of web project)
+montage-ios-main
+CaféLog
+stitch_loaded.png
+stitch_zoomed_fit.png

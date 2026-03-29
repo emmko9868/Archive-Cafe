@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CaféLog - Feed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e88c30",
+                        "background-light": "#fcfaf8",
+                        "background-dark": "#211911",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="max-w-md mx-auto min-h-screen flex flex-col bg-background-light dark:bg-background-dark shadow-sm">
+<!-- Header -->
+<header class="sticky top-0 z-20 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-4 flex items-center justify-between border-b border-primary/10">
+<h1 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Feed</h1>
+<div class="flex items-center gap-1 bg-primary/10 px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm text-primary">translate</span>
+<span class="text-xs font-bold text-primary tracking-wider uppercase">EN / KR / CH</span>
+</div>
+</header>
+<!-- Category Filters -->
+<div class="flex gap-3 px-4 py-3 overflow-x-auto no-scrollbar whitespace-nowrap">
+<button class="flex items-center gap-1 px-4 py-2 rounded-full bg-primary text-white text-sm font-semibold">
+                All
+            </button>
+<button class="flex items-center gap-1 px-4 py-2 rounded-full bg-primary/10 text-slate-700 dark:text-slate-300 text-sm font-medium border border-primary/20">
+                #Hanok
+            </button>
+<button class="flex items-center gap-1 px-4 py-2 rounded-full bg-primary/10 text-slate-700 dark:text-slate-300 text-sm font-medium border border-primary/20">
+                #SpecialtyCoffee
+            </button>
+<button class="flex items-center gap-1 px-4 py-2 rounded-full bg-primary/10 text-slate-700 dark:text-slate-300 text-sm font-medium border border-primary/20">
+                #Dessert
+            </button>
+<button class="flex items-center gap-1 px-4 py-2 rounded-full bg-primary/10 text-slate-700 dark:text-slate-300 text-sm font-medium border border-primary/20">
+                #WorkFriendly
+            </button>
+</div>
+<!-- Main Feed -->
+<main class="flex-1 overflow-y-auto px-4 pb-24 space-y-6">
+<!-- Card 1 -->
+<article class="bg-white dark:bg-slate-800/40 rounded-xl overflow-hidden shadow-sm border border-primary/5">
+<!-- User Profile Header -->
+<div class="flex items-center justify-between p-3">
+<div class="flex items-center gap-2">
+<img alt="User Avatar" class="w-8 h-8 rounded-full bg-primary/10" data-alt="Portrait of a female user with a friendly smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCjmgriBP2dbxNEq2SacnDhWDfi7RU7ZB6TfSi9c4PTthokiT18CN3Uvk9SJCf4LPAeA5r7ym1tZXn-Rm8T2gdvNKB_BusuCG0eAZ3rKrTShlYNlJO_AFP0a-mQ-aedE0ve_5WlfLHXRB7sFVRnP5Jx3FnGVe9DQ3gPYZpCbvPEJLypHItufBwRmSkZziqg4RRKZmkejDJPTZdt7VWq-jjqjSDl0zUORQDTSU0yK9euOYuaUTAn1QzIt2flbQpdMMXocV6VdXhfotw"/>
+<div>
+<p class="text-sm font-bold leading-none">@coffee_lover</p>
+<p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Seongsu-dong, Seoul</p>
+</div>
+</div>
+<button class="text-slate-400">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<!-- Main Image -->
+<div class="aspect-square bg-slate-100 dark:bg-slate-800 relative">
+<img alt="Cafe Interior" class="w-full h-full object-cover" data-alt="Modern cafe interior with large windows and wooden tables" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaQ4oJz5pClQStuubnpb2IbCxpnr2OJG4zW604VWGyaaa9RKU0VQlJwW10e8B7WzdYxfQOEwyJ_JM3ltSy6zxI8rQRLWSj2XaCEWt8s4Ai31snlVGkA_wkQX8j9KKpVrFHAYuZgE6FFWE3Vf4iTJJkccFjqu83vN-6Hge8LwL5UcvuXFkpZKBItpDaj_7sVjq9tssKAMhuze6U4Idz733I5-ZAfTlYbBTz6jK7i1mbfURiiTW6cHJ7gxH3z2nlPoRoCbN75dqGMzfb"/>
+</div>
+<!-- Interaction Bar -->
+<div class="p-3">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">favorite</span>
+<span class="text-xs font-bold">128</span>
+</button>
+<button class="flex items-center gap-1 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-xs font-bold">12</span>
+</button>
+<button class="flex items-center gap-1 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+<button class="text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+<!-- Details -->
+<h3 class="font-bold text-lg mb-0.5">Blue Bottle Coffee</h3>
+<p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-2">
+                        A beautiful space with amazing specialty coffee. The minimalist vibe is perfect for quiet mornings.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="text-xs font-semibold text-primary">#Hanok</span>
+<span class="text-xs font-semibold text-primary">#SpecialtyCoffee</span>
+<span class="text-xs font-semibold text-primary">#SeoulCafe</span>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-white dark:bg-slate-800/40 rounded-xl overflow-hidden shadow-sm border border-primary/5">
+<div class="flex items-center justify-between p-3">
+<div class="flex items-center gap-2">
+<img alt="User Avatar" class="w-8 h-8 rounded-full bg-primary/10" data-alt="Portrait of a male user with stylish glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBE0BSp5DHmo5FoI2uNhtyG2NZpL4EAo1xsC5OFd3F74kefh31RSOW0WWjCqLjG_COkGqoySQuT4iV7r7DdYi7ubSzPx1n-z2ZByitlm-1XpdVTTmbjMlJ0oex1BzLivbSxBvGKxcpqwfSS2eVhBSg8AccK2OeHcVV1dDCNdQROhWSlKCDZ0Rh11Q7edC_r0Iwa3mYgrSeBiEceEjXZaGODHGy60_kBJphuPBDvCG0aWVbkyasgsD8ilwuIPrJwbluLNUxklBf6O4N"/>
+<div>
+<p class="text-sm font-bold leading-none">@design_nomad</p>
+<p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Busan, KR</p>
+</div>
+</div>
+<button class="text-slate-400">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="aspect-square bg-slate-100 dark:bg-slate-800 relative">
+<img alt="Minimalist Cafe" class="w-full h-full object-cover" data-alt="A minimalist white coffee shop counter with an espresso machine" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB39B4PatrpgjjCwz9cKIeuqrDYpFabZlVXx_EqrkYr7p0_aFyr0CGFFYfQMRl74ZC1py1Gf3eEeO-Ssbfs2e4jCQgjPVUDfDpG0AQQl6e2-Fhpfl0MTPNb75kpoIerbaKhBo5vx7RI98s_VU9vAV-XFZhY2fjNpyyNLp57qnMPyEJUgpI2GPiDi76AncL3mSe-Qc9opcqY3rWkoOADeOnkoUZ5CqRC5SEHoNGLKTAdN5R168-h-68BfC8N0ooNyu6HYMy6VstSGj4T"/>
+</div>
+<div class="p-3">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-1 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-xs font-bold">84</span>
+</button>
+<button class="flex items-center gap-1 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-xs font-bold">5</span>
+</button>
+</div>
+<button class="text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">bookmark</span>
+</button>
+</div>
+<h3 class="font-bold text-lg mb-0.5">Momentum Brews</h3>
+<p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-2">
+                        The sea view here is unmatched. Best flat white in the city! 🌊
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="text-xs font-semibold text-primary">#SeaView</span>
+<span class="text-xs font-semibold text-primary">#BusanTravel</span>
+</div>
+</div>
+</article>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-background-light dark:bg-background-dark border-t border-primary/10 px-6 pb-6 pt-3 flex items-center justify-between z-30">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">rss_feed</span>
+<span class="text-[10px] font-bold">Feed</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="text-[10px] font-medium">Map</span>
+</a>
+<a class="relative -top-8 flex flex-col items-center justify-center w-14 h-14 bg-primary text-white rounded-full shadow-lg border-4 border-background-light dark:border-background-dark" href="#">
+<span class="material-symbols-outlined text-3xl">add</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-[10px] font-medium">Calendar</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">My Page</span>
+</a>
+</nav>
+</div>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Café Detail - CaféLog</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e88c30",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#211911",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<header class="fixed top-0 z-50 flex w-full items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md p-4 justify-between">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-white/50 dark:bg-slate-800/50 shadow-sm cursor-pointer">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-100">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 text-center">Café Details</h2>
+<div class="flex gap-2">
+<div class="flex size-10 items-center justify-center rounded-full bg-white/50 dark:bg-slate-800/50 shadow-sm cursor-pointer">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-100">share</span>
+</div>
+<div class="flex size-10 items-center justify-center rounded-full bg-white/50 dark:bg-slate-800/50 shadow-sm cursor-pointer text-primary">
+<span class="material-symbols-outlined fill-1">bookmark</span>
+</div>
+</div>
+</header>
+<main class="pt-16 pb-24">
+<div class="@container">
+<div class="@[480px]:px-4 @[480px]:py-3">
+<div class="relative w-full aspect-square md:aspect-video bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden @[480px]:rounded-xl" data-alt="Traditional Korean hanok cafe exterior with warm lighting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDEMj02Dkxn0huX8bglmO572sFKc_1e01Q8Zo-0sSYDur85NizKb_7Hx3RkB9sJjwqIikLTFDPHPL5-UqAwdN25cZbgKzvUuR_f3coQ7G4cksoldNcP9a0TbZuerUGeuXB1uUABNytlUuzkvhnXYocq5NXQujl7i7DZN071U_F_njKUkGh5eViCeO8Are6TCgcUOrq9LAlJImNkPzt8VX1NCDuxwauUP4SkeuItThAFiIHFCwbDpclogGaZAUdsuBA3qH6E27dZEdiv");'>
+<div class="absolute bottom-4 right-4 bg-black/40 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-medium">
+                            1 / 12
+                        </div>
+</div>
+</div>
+</div>
+<section class="px-4 pt-6 pb-2">
+<h1 class="text-slate-900 dark:text-slate-100 tracking-tight text-3xl font-bold leading-tight">Sol-Hwa Hanok Café</h1>
+<div class="flex gap-2 mt-3 flex-wrap">
+<div class="flex h-7 items-center justify-center rounded-full bg-primary/10 px-3 border border-primary/20">
+<p class="text-primary text-xs font-semibold">Hanok</p>
+</div>
+<div class="flex h-7 items-center justify-center rounded-full bg-primary/10 px-3 border border-primary/20">
+<p class="text-primary text-xs font-semibold">Signature Coffee</p>
+</div>
+<div class="flex h-7 items-center justify-center rounded-full bg-primary/10 px-3 border border-primary/20">
+<p class="text-primary text-xs font-semibold">Desserts</p>
+</div>
+</div>
+</section>
+<section class="p-4 space-y-4">
+<div class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-primary/10">
+<div class="size-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">location_on</span>
+</div>
+<div class="flex-1">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">Address</p>
+<p class="text-slate-900 dark:text-slate-100 text-sm font-medium mt-0.5">78-1, Gyedong-gil, Jongno-gu, Seoul</p>
+<button class="mt-2 text-primary text-xs font-bold flex items-center gap-1 uppercase tracking-tight" data-location="Seoul">
+                            View on Map <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex items-start gap-3 p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-primary/10">
+<span class="material-symbols-outlined text-primary text-xl">schedule</span>
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-[10px] font-bold uppercase">Hours</p>
+<p class="text-slate-900 dark:text-slate-100 text-sm font-medium">10:00 - 21:00</p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-primary/10">
+<span class="material-symbols-outlined text-primary text-xl">call</span>
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-[10px] font-bold uppercase">Contact</p>
+<p class="text-slate-900 dark:text-slate-100 text-sm font-medium">02-123-4567</p>
+</div>
+</div>
+</div>
+</section>
+<section class="mt-4">
+<div class="px-4 flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">Signature Menu</h3>
+<button class="text-primary text-sm font-semibold">View All</button>
+</div>
+<div class="flex overflow-x-auto gap-4 px-4 pb-2 no-scrollbar">
+<div class="min-w-[160px] w-[160px] space-y-2">
+<div class="aspect-square rounded-xl bg-center bg-cover border border-primary/10" data-alt="Black sesame latte with creamy foam" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAUjEE6wV-nstORCvqGm1XUySqUaXnXHjR2DT28SGV2X0Zqt5HJGppDq5UUmCgliDgEsFQnV_pAs4kOQdOAaOmTlE_FS0XKVsi7PP296Yu8SCTK-coCJ3OfD97RgnoF514KrLly43iC7rhzS5I5kTPpridBFlnieubo9Zdjp2lIoyEE4YKCNlSKO6NSd0adZALh3wtTSbcLLiWGawAZ-MxiQkGyf_K7P3C_3WgjhPyvX2xIOLM_LQAW1eDaz9W93e9DlxfFHhkOZq-Y');">
+</div>
+<div>
+<p class="text-slate-900 dark:text-slate-100 text-sm font-bold">Black Sesame Latte</p>
+<p class="text-primary text-sm font-medium">₩7,500</p>
+</div>
+</div>
+<div class="min-w-[160px] w-[160px] space-y-2">
+<div class="aspect-square rounded-xl bg-center bg-cover border border-primary/10" data-alt="Injeolmi croffle with soy powder and ice cream" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDbv1j1E_6pqh2fu8YovIlon1u4nxu-RkoQP2E3xoixWUUXUliC7jMUVOIk_hpNPkg1DGMzIJ4YgeAUL0R4jxfRU9bfRVr02Et_R3Dm0DV3F_nG85aydUXGRo3dkroxGfd0aYo7pAxyX9xCVguSmEZcC5c4woUKpzQc69nMToUA89jdyJz8qK9OLxSVW3r5oZD0yytVl_oKnX_SnRx_qNx7sk3g-p99ehekt3spvea-J5gzQLjE6_78SBewQO9eYDQq_otQAHFXSg9y');">
+</div>
+<div>
+<p class="text-slate-900 dark:text-slate-100 text-sm font-bold">Injeolmi Croffle</p>
+<p class="text-primary text-sm font-medium">₩9,000</p>
+</div>
+</div>
+<div class="min-w-[160px] w-[160px] space-y-2">
+<div class="aspect-square rounded-xl bg-center bg-cover border border-primary/10" data-alt="Matcha latte in ceramic cup" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB00vEMK5QWbmL11sEWDv1kusSaTy2xvrQqMTXLCEXzBgZtjiMghS1yW6HPHDxjMOLftO3YIeJ7XPX4AbEDC-R9_QKyF0nvpm45F64Gq_d44kVlHMZ_xKKwsHtpy7srJI6HIs__SoCS027L2K4_SmGrBI8rG5XhasKJf53aGSOelstr3m22rUUi4aTQGCbT2nCMMzNlo1-i31u--hvU5927Rdyn2sAu-1iquvkIHjYlYZY9QoiLItvlI-_MF9FWEAmiRh8r1ELH-7_d');">
+</div>
+<div>
+<p class="text-slate-900 dark:text-slate-100 text-sm font-bold">Matcha Einspanner</p>
+<p class="text-primary text-sm font-medium">₩8,000</p>
+</div>
+</div>
+</div>
+</section>
+<section class="mt-8 px-4">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">Visitor Logs</h3>
+<div class="flex items-center gap-1 text-primary text-sm font-bold">
+<span class="material-symbols-outlined text-sm">edit</span>
+                        Write
+                    </div>
+</div>
+<div class="space-y-6">
+<div class="p-4 rounded-xl bg-white dark:bg-slate-800 border border-primary/5 shadow-sm">
+<div class="flex items-center gap-3 mb-3">
+<div class="size-8 rounded-full bg-center bg-cover" data-alt="User profile picture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuASSJW1vn3NJgo_7C0ipvAE-h8gp4soIO4x1NZa8NM8lsLBtfHLqNsFfo9j5B1Dl0jwGV7mAccTn7lDLvsS-w4_rMQ1_St2gtf4m--4_wbgBvh66K8jKhGBGOiCHPC7LtGWqPPaxdHHcCceFrfqf6Ntgz07arTcMsFpE0GCQ13b0vuIR50FOV1ophUs52RcR4fwTOzGokU4IiZgTC5tyVI8mVDHCqg9gEnmvmBhf52HWeFAoPQpd71FI9zG-io6QjPcYRKXj02DwWkU');">
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-slate-900 dark:text-slate-100">Min-ji Kim</p>
+<p class="text-[10px] text-slate-500">2 days ago</p>
+</div>
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+</div>
+</div>
+<p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-3">
+                            The atmosphere is absolutely magical. The contrast between the traditional hanok structure and modern coffee culture is perfect. Highly recommend the Black Sesame Latte!
+                        </p>
+<div class="grid grid-cols-3 gap-2">
+<div class="aspect-square rounded-lg bg-center bg-cover" data-alt="Cafe interior shot by visitor" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAMfyUIlGQDBHJ28HqprGhbSZlygmEcXrj3R8mjJHbD3EOSh5A6Jo_SZGcySZ8iXCVwmOE-1QFXA2tVoAGxRB-2GvF1Qe4Ssrv2mm6JOHcwEDUz76MVrPd4J7n_wL6tAD7vcS-z_uut8Mi3Y6ebbRQQ9u7NSMHwnAEj1e5Mmw-LO6qHCixvjdu8ZbYu5RWZnH6U0DaLjxwTUQVCcNd5Dh_dvwMDkEPMObgYe3QmQsn99VSARcAq5hAp0REsKCfi_i1Tw72VTlK8w3Wz');"></div>
+<div class="aspect-square rounded-lg bg-center bg-cover" data-alt="Coffee detail shot by visitor" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuARi1MczP5ALLQpaKcwqrHlUYO3i8K40UC4pgcW2SvSXFJUU8VDuEgeprpeDFwUKgHKEba10xct6idFFSku7dq0mU5jKGVSHYgernwyKnpGn_14y6t20-K_e-k-Au1R4IxyWLb8HPI9VgpovuE-6mcVGhUHTNVu_AgiLQ7FL94KWTHwoeE4XBx5Addl2iwGV26m58ySg_IuqWXB2AgJx_rSm6UfCz8PfZnG-U0sCXI0HcChjR7rdNCKcLdeRJNmH-IiZEvIKhQyDb_L');"></div>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-white dark:bg-slate-800 border border-primary/5 shadow-sm">
+<div class="flex items-center gap-3 mb-3">
+<div class="size-8 rounded-full bg-center bg-cover" data-alt="User profile picture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDUACjjTrTJXEpapVqaoHoC8-CMdnyGp6wMNxcAGqtnlaLTuSsT1hqIzJgVmxRDCfovHR6-8rh0DEKOKZVL60x77JzrAHNiFkn5b-uLwhcA5FxGAn2DWpUnE0QP8IaAPY-uOR9EJSgXne5372hLG2iLq6Ar9ZRXQO--v81AytZM_kexL45YLVEr2VR9AUO8JTY38M24F9SZqEnn10SCQyfrAFF8BTwrgqt5ziT4MMr52khqPN9F1TXFeKN43a9bQ3wH35eBRVD-ZxTm');">
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-slate-900 dark:text-slate-100">Ji-hoon Park</p>
+<p class="text-[10px] text-slate-500">Last week</p>
+</div>
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+</div>
+</div>
+<p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                            A bit crowded on weekends but worth the wait. The Injeolmi Croffle is the best I've ever had. Very peaceful vibe.
+                        </p>
+</div>
+</div>
+</section>
+</main>
+<footer class="fixed bottom-0 left-0 right-0 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-xl border-t border-primary/10 p-4 pb-6">
+<div class="max-w-md mx-auto flex gap-3">
+<button class="flex-1 h-14 bg-primary text-white rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">directions</span>
+                    Get Directions
+                </button>
+<button class="w-14 h-14 bg-white dark:bg-slate-800 border border-primary/20 text-primary rounded-xl flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-2xl">favorite</span>
+</button>
+</div>
+</footer>
+</div>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .fill-1 {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</body></html>

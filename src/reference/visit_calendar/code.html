@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CaféLog - Calendar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e88c30",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#211911",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e88c3044;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Top Header / Month Selection -->
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+<div class="flex items-center justify-between px-6 py-4 max-w-2xl mx-auto w-full">
+<button class="p-2 hover:bg-primary/10 rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">chevron_left</span>
+</button>
+<div class="text-center">
+<h1 class="text-xl font-bold tracking-tight">October 2024</h1>
+<p class="text-[10px] uppercase tracking-widest text-primary font-semibold">Coffee Journey</p>
+</div>
+<button class="p-2 hover:bg-primary/10 rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">chevron_right</span>
+</button>
+</div>
+</header>
+<!-- Calendar Container -->
+<main class="flex-1 w-full max-w-2xl mx-auto px-4 py-6">
+<!-- Weekday Headers -->
+<div class="grid grid-cols-7 mb-2">
+<div class="text-center text-xs font-bold text-slate-400 py-2">SUN</div>
+<div class="text-center text-xs font-bold text-slate-400 py-2">MON</div>
+<div class="text-center text-xs font-bold text-slate-400 py-2">TUE</div>
+<div class="text-center text-xs font-bold text-slate-400 py-2">WED</div>
+<div class="text-center text-xs font-bold text-slate-400 py-2">THU</div>
+<div class="text-center text-xs font-bold text-slate-400 py-2">FRI</div>
+<div class="text-center text-xs font-bold text-slate-400 py-2">SAT</div>
+</div>
+<!-- Calendar Grid -->
+<div class="grid grid-cols-7 gap-px bg-primary/5 rounded-xl overflow-hidden border border-primary/10">
+<!-- Empty days from previous month -->
+<div class="aspect-square bg-background-light dark:bg-background-dark p-1 opacity-20">
+<span class="text-[10px] font-medium p-1">29</span>
+</div>
+<div class="aspect-square bg-background-light dark:bg-background-dark p-1 opacity-20">
+<span class="text-[10px] font-medium p-1">30</span>
+</div>
+<!-- October 1 to 31 -->
+<!-- 1st -->
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">1</span>
+</button>
+<!-- 2nd - Has Visit -->
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 ring-inset hover:ring-2 ring-primary transition-all">
+<span class="absolute top-1 left-1 z-10 text-[10px] font-bold bg-white/80 dark:bg-black/40 backdrop-blur-sm px-1.5 rounded-sm">2</span>
+<div class="w-full h-full rounded-md overflow-hidden">
+<img class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all" data-alt="A small square thumbnail of a rustic coffee cup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkICjG8QCW3anNZGzIb5kb2hl02QmWLbGr_BT_Ujgwjw-Yky8mRceBohmKLBL7IPjpEH-d1IGaXMV_w39TzGkI3l2fhz_ljIMsvAm5fx6JfE73AzvW-agsHPRYpfVGVRP5aGtq3wObTf5NCe7C8tDCUPFIaJUclK1qQwAvlP6_SUtJU8W1kaHeGmfN07O2N0LjPj-NY-xsJ0ssy7PbEIXYhc2QQfi8Kuz_mN0T8__1WAdpXsGc5KhblQ8cBQUW55M16erTDL8jCScS"/>
+</div>
+</button>
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">3</span>
+</button>
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">4</span>
+</button>
+<!-- 5th - Has Visit -->
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 ring-inset hover:ring-2 ring-primary transition-all">
+<span class="absolute top-1 left-1 z-10 text-[10px] font-bold bg-white/80 dark:bg-black/40 backdrop-blur-sm px-1.5 rounded-sm">5</span>
+<div class="w-full h-full rounded-md overflow-hidden">
+<img class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all" data-alt="Close up photo of latte art in a white ceramic cup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA16ze4edg433ODUxRFDa-r4Qw0UtdjBhalKs9ksOThYJs7pO-3N43kOpguN6-Oeo5vi4RoBqTTGyRM1Gm3OkW1E6zcYx-Pm6gvNZVfsO-HIHrhfoN4ZApwyBJmnhDQCbpXyW8hLfioL7wVv1qll3yt45p4J87ey9253dS7X5a7GBlJOgzZ7UqmickGohtvuwq-xiJEyyYniUAZyO3eEYqPRxm21ic7X5C0Z3zMUAZVhkPetvedzVaaeUJJ1vnS1PaLCEovsSsrqEuU"/>
+</div>
+</button>
+<!-- Week 2 -->
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">6</span>
+</button>
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">7</span>
+</button>
+<!-- 8th - Has Visit -->
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 ring-inset hover:ring-2 ring-primary transition-all">
+<span class="absolute top-1 left-1 z-10 text-[10px] font-bold bg-white/80 dark:bg-black/40 backdrop-blur-sm px-1.5 rounded-sm">8</span>
+<div class="w-full h-full rounded-md overflow-hidden">
+<img class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all" data-alt="Interior of a modern minimal cafe with wooden chairs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFn9pFubquL0ULwn30BwL4a-TVWMEPx9KTrTFPMV3lF5s-WX3CmabXvCC2PeKGvbOGE91Mmlk7LPW44_ES52GNZs9gNtfcsvMdOKTnQtYJxixrhYlnIAzCG26LdqOfPK5gc-DGvpCAs0ySZpWB-Xk7iVeJf81KiEdaK3yshxgsQds4hI3QZdV3BBWm51NCvAvPD7gSgiV0Oc2eb6ku5-UKYSPnx6xIfXw2oRhGUn72bKFUFfs3Tzu_hLZY3zE732ozXZXUZQx2LfXF"/>
+</div>
+</button>
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">9</span>
+</button>
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">10</span>
+</button>
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">11</span>
+</button>
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">12</span>
+</button>
+<!-- Week 3 -->
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">13</span>
+</button>
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">14</span>
+</button>
+<!-- 15th - ACTIVE SELECTION -->
+<button class="group relative aspect-square bg-primary/20 dark:bg-primary/40 p-1 ring-2 ring-primary transition-all">
+<span class="absolute top-1 left-1 z-10 text-[10px] font-bold bg-primary text-white px-1.5 rounded-sm">15</span>
+<div class="w-full h-full rounded-md overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A aesthetic cafe window view with soft afternoon light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOXa2A7qKmlzp4-dwTz64Z1IM3-CV33Esve7nJDE0r4uS986ZobGew3_xeBEIpWUxIZ4dcLhj-uwNOZfAUwS7jVy-nsjkJgmMfq8jgLeaCr4b-7tTBaaRmBINgEEpcn_LieNP_Ym3yuBh2K6BkULBie8dS_h5hLAeTgY94g0t_5YLblE5QzKRVgAbOgmkExmcpfA6o7MsjvQLkfiw2su2Gh6FtSmjSwSeZ17griJCa8pIqOXUJsSno5-YXER3mV_Vzk4c5F9SNnVfN"/>
+</div>
+</button>
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">16</span>
+</button>
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">17</span>
+</button>
+<!-- 18th - Has Visit -->
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 ring-inset hover:ring-2 ring-primary transition-all">
+<span class="absolute top-1 left-1 z-10 text-[10px] font-bold bg-white/80 dark:bg-black/40 backdrop-blur-sm px-1.5 rounded-sm">18</span>
+<div class="w-full h-full rounded-md overflow-hidden">
+<img class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all" data-alt="Freshly baked croissant and coffee on a plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw3qGN-YJUI3MPOCYUiM9Bzd5dXHyWdQGiJgXocmHpMrTfmqmvJOuz4-wIeughhAZrf_buO9fWT0lm6-CxZl1V6YHqLO-SwgLrGbi7no0brTthDgcesj7OdDhxiKFPzoPY44PTPqc_twlbJvUlqTtY-T74XwMtpSYcp5-a_aNHlrL-TdkJfinRC2MdpK02F3zhHj0WdQe_tn0PHXfS7XehmTkibP6PDcfnbCGeI_mPhNzQ4L6Pw8knJR3j8dUr9ojN_YEzPuRtDm91"/>
+</div>
+</button>
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">19</span>
+</button>
+<!-- Fill out rest with empty days for demonstration -->
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">20</span>
+</button>
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">21</span>
+</button>
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">22</span>
+</button>
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">23</span>
+</button>
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">24</span>
+</button>
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">25</span>
+</button>
+<!-- 26th - Has Visit -->
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 ring-inset hover:ring-2 ring-primary transition-all">
+<span class="absolute top-1 left-1 z-10 text-[10px] font-bold bg-white/80 dark:bg-black/40 backdrop-blur-sm px-1.5 rounded-sm">26</span>
+<div class="w-full h-full rounded-md overflow-hidden">
+<img class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all" data-alt="Coffee beans on a wooden table surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyO_jWi5tkwuR3TmgWsmstv8v7w1rWyNzOUrSdZ4-ar7q61TgsIAoTkz80IV5yHWayXfNxtcAKQ5a8e4O7rIZ1usu02rpZS9Imhd_ibekzSI9bwGTagKFFTyKthg3kWDb4_gmLwmwkNkiSYHXKLcLfuFJDAJrwt4Jbnf9NyvZGxK3ZsgUaP5Ue75r-C_4xYGzklwiPOfc1v3sUuckren3yC9FecKLBLX3DLqqOToGUCDhrwEMiF9Aj8VNslJhOAJBzh-iGY57rfGdo"/>
+</div>
+</button>
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">27</span>
+</button>
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">28</span>
+</button>
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">29</span>
+</button>
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">30</span>
+</button>
+<button class="group relative aspect-square bg-background-light dark:bg-background-dark p-1 hover:bg-primary/5 transition-colors">
+<span class="text-[10px] font-medium p-1 text-slate-500">31</span>
+</button>
+<!-- Future placeholders -->
+<div class="aspect-square bg-background-light dark:bg-background-dark p-1 opacity-20">
+<span class="text-[10px] font-medium p-1">1</span>
+</div>
+<div class="aspect-square bg-background-light dark:bg-background-dark p-1 opacity-20">
+<span class="text-[10px] font-medium p-1">2</span>
+</div>
+</div>
+<!-- Selection Detail (Shown when date with record is tapped) -->
+<section class="mt-8 animate-in slide-in-from-bottom-2 duration-300">
+<h4 class="text-xs font-bold uppercase tracking-widest text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">event</span>
+                October 15, 2024
+            </h4>
+<div class="bg-white dark:bg-background-dark border border-primary/10 rounded-xl p-4 shadow-sm flex gap-4">
+<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0 border border-primary/5">
+<img class="w-full h-full object-cover" data-alt="Close up of a perfect cafe corner" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcTYHm4BFKFgHWPdqeidtLDZ7eUofO7YoKZ9X_Nilbk4_4QrPDmyqItro2ZZ7OdbZeuNXwkVUrlhlorKI0qP0pkNFzyfQK5g740_DbPBPC5AK8dOwTzICsyPMloW9jBsgVfunqURViAx1qRrb64G_xjqlDx3fDISMr9GYK0kZ1t7LhzC9l-6BGGDbL7nTOxoQfqwUNdky67bZkntxc-69s547VrXmzMxdB7fYEkfpdnkDu12K2l4cEDwwIf9ok-h7pp6XCnjWndWDz"/>
+</div>
+<div class="flex flex-col justify-center">
+<h3 class="font-bold text-lg text-slate-800 dark:text-slate-100">The Roasting Project</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                        Shibuya, Tokyo
+                    </p>
+<div class="mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-primary text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-primary text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-primary text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-primary/30 text-sm">star</span>
+<span class="text-xs font-medium ml-1 text-slate-400">4.0</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Brief -->
+<section class="mt-8 mb-24 grid grid-cols-2 gap-4">
+<div class="bg-primary/5 dark:bg-primary/10 p-4 rounded-xl border border-primary/10">
+<p class="text-[10px] font-bold uppercase text-slate-400 tracking-wider">Visits this month</p>
+<p class="text-2xl font-bold text-primary">6 Cafés</p>
+</div>
+<div class="bg-primary/5 dark:bg-primary/10 p-4 rounded-xl border border-primary/10">
+<p class="text-[10px] font-bold uppercase text-slate-400 tracking-wider">Favorite Blend</p>
+<p class="text-2xl font-bold text-primary">Ethiopia</p>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-20 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-lg border-t border-primary/10 px-4 pb-6 pt-2">
+<div class="max-w-2xl mx-auto flex items-center justify-around"><a class="flex flex-1 flex-col items-center justify-center gap-1 py-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">newspaper</span>
+<p class="text-[10px] font-semibold">Feed</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 py-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">map</span>
+<p class="text-[10px] font-semibold">Map</p>
+</a>
+<div class="flex flex-1 justify-center -mt-8">
+<button class="bg-primary text-white size-14 rounded-full shadow-lg shadow-primary/40 flex items-center justify-center ring-4 ring-background-light dark:ring-background-dark active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 py-1 text-primary" href="#">
+<span class="material-symbols-outlined fill-1">calendar_month</span>
+<p class="text-[10px] font-bold">Calendar</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 py-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-[10px] font-semibold">My Page</p>
+</a></div>
+</nav>
+</body></html>

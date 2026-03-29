@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CaféLog - My Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e88c30",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#211911",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex min-h-screen w-full max-w-md mx-auto flex-col bg-background-light dark:bg-background-dark shadow-xl">
+<!-- Header -->
+<header class="sticky top-0 z-10 flex items-center justify-between bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-4">
+<div class="w-10"></div>
+<h1 class="text-lg font-bold tracking-tight">My Page</h1>
+<button class="flex h-10 w-10 items-center justify-center rounded-full hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">settings</span>
+</button>
+</header>
+<!-- Profile Section -->
+<section class="flex flex-col items-center px-6 py-4">
+<div class="relative group">
+<div class="h-28 w-28 rounded-full border-4 border-white dark:border-slate-800 shadow-md bg-cover bg-center" data-alt="Professional female portrait in a warm cafe setting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBnnDJLXAixepFc1Wk05xogTrtJa7R3fqOZ-1t54r96qaz_pVl3lORG9es1D99gkrGQEc--lUXS_I7Q0jLW4ovvzYJDV-q49-hoSJrmY96S558BfjAYRkA7nxtjFin5ZDBE7u0YxceG6g9MhTd6RqUVb-qQ54jhsjeJOSX6q2qLhsQ2l_jYy5txkeFm_bkAVAngwSye3WtNNFvAz2GKr1ajNkRTExzgpls7D-VASARp4c-nlYbF4N9zsToKkTHBCLd49MVsLms8uGYU');">
+</div>
+<div class="absolute bottom-0 right-0 bg-primary h-8 w-8 rounded-full border-2 border-white dark:border-slate-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm">camera_alt</span>
+</div>
+</div>
+<div class="mt-4 text-center">
+<h2 class="text-xl font-bold">Alex Rivers</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1 leading-relaxed">Cafe Explorer | Espresso Lover<br/>Searching for the perfect crema in London.</p>
+</div>
+<button class="mt-4 flex w-full max-w-xs items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 h-10 px-6 font-semibold text-sm transition-all hover:border-primary active:scale-95">
+<span class="material-symbols-outlined text-lg">edit</span>
+                Edit Profile
+            </button>
+</section>
+<!-- Stats Bar -->
+<section class="flex justify-between px-6 py-4">
+<div class="flex flex-1 flex-col items-center border-r border-slate-200 dark:border-slate-700">
+<p class="text-xl font-bold">128</p>
+<p class="text-xs text-slate-500 uppercase tracking-wider font-medium">Cafés</p>
+</div>
+<div class="flex flex-1 flex-col items-center border-r border-slate-200 dark:border-slate-700">
+<p class="text-xl font-bold">1.2k</p>
+<p class="text-xs text-slate-500 uppercase tracking-wider font-medium">Followers</p>
+</div>
+<div class="flex flex-1 flex-col items-center">
+<p class="text-xl font-bold">450</p>
+<p class="text-xs text-slate-500 uppercase tracking-wider font-medium">Following</p>
+</div>
+</section>
+<!-- Insights Section -->
+<section class="px-6 py-4">
+<h3 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-3">Insights</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-primary/10 rounded-xl p-4 flex flex-col items-center text-center">
+<div class="h-10 w-10 bg-primary/20 rounded-full flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-primary">coffee</span>
+</div>
+<p class="text-xs text-slate-600 dark:text-slate-300">Favorite Drink</p>
+<p class="font-bold text-slate-900 dark:text-slate-100">Oat Flat White</p>
+</div>
+<div class="bg-primary/10 rounded-xl p-4 flex flex-col items-center text-center">
+<div class="h-10 w-10 bg-primary/20 rounded-full flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-primary">palette</span>
+</div>
+<p class="text-xs text-slate-600 dark:text-slate-300">Top Theme</p>
+<p class="font-bold text-slate-900 dark:text-slate-100">Minimalist &amp; Oak</p>
+</div>
+</div>
+</section>
+<!-- Tabs Navigation -->
+<nav class="flex border-b border-slate-200 dark:border-slate-700 px-6 mt-4">
+<button class="flex-1 pb-3 text-sm font-bold border-b-2 border-primary text-primary">My Records</button>
+<button class="flex-1 pb-3 text-sm font-medium text-slate-400 hover:text-slate-600">Saved</button>
+</nav>
+<!-- Content Area: Grid -->
+<main class="flex-1 p-1 bg-slate-50 dark:bg-slate-900/50">
+<div class="grid grid-cols-3 gap-1">
+<div class="aspect-square bg-cover bg-center rounded-sm" data-alt="Close up of a latte with heart art" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBImcOrKNFT_dkCkP7zoUcYQ4a8lbdLKybl4Q_ryp9TlDkTnQuzIhYu--6TMp0bQx5Sxf9RHhyGJVBH7iu4CuC3DQOxlIgXsUrxt58_XyV-t58nAG2kQsQA_Pfas7EQA1ULl5tFz8M2UNoNT-7iE_mFyPidpLtO2cq4nCmWcdeaw1EVj4BEsg_FhLN5iKhVj_4T8QyD1raSAu-4s0tH-XANhswD41uTJIs1PkJv5IvtZBFaCPyresiWeLyKDcrUpXnQ6l1Yb-iHF3DB');"></div>
+<div class="aspect-square bg-cover bg-center rounded-sm" data-alt="Modern minimalist cafe interior with wood furniture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCh608QUHFPcARamW7YIrOxYMfUMaMxGBpoUJ6lGR8cvTLlFPeAO3XIk4AytOKAFJWSz9_bd4vCrgb73sATnhisBfv1MfeQ8VGhQGftPimIPsPLwdPoBmksN_kmE1ncW4KlceoZbd4dfCpU2V9nWJBiOcNOJOZMBf4m9zxj55o34qpbk7Co_-b4SrhU2_eI9Gj4M0rsz_3j67_AUjkcArMufKX1Vhk9a7gLhXyvwmWrlc6nne6pUDHHEOVHUwQ3KXrcc3AD9WQFy4QM');"></div>
+<div class="aspect-square bg-cover bg-center rounded-sm" data-alt="Variety of coffee drinks on a tray" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBxz_O9WQ2sDDlCoEAUJ05oWS4jswRMB13lbPdK8Blxqkha6zPR1zNtF1_zXaUBaM03DOuzrQ1lZnAOtMZhrzyisrsQQf8CzaIJJ_PcFa07DueHYtQT4EShvq46v8B60Fc1a3m56d49_t-55PAIMSbs4Qh-Aj4zsh4ooWOTAkV5mvASbHzNDq8y7oK-1K6lc0DECsnV_kuMJaXlWA7_h8rv3dLhlV39BX1AmKWFuxvsNEz7W9PlM0cct_SmCYmWvSXVVgxusHUNTPwB');"></div>
+<div class="aspect-square bg-cover bg-center rounded-sm" data-alt="Espresso machine pulling a shot" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA9AiWiW2l_EB_ut8FWWAoJzPhxFpCyY-dkez6QoMVldKNWt-pUK4dWfqOYgHtVsorDFfguva2N2VOgVINFnkBB-9mHk8v2oUobbbmtConyFfVoxFGbmLtPlyf_CiAwF64essXTfo8Y1DsBfDIoXVvIBuWwOnHwplRTnGiPIzhXZTnehfyITxs9tLBx5-elJnI6yJIyFFa6nuraq-BX6H4Ux_FipJNP6pLCP1-DjOHhZPln8yQ5SYXjqALITLEt2WN9fT_BemBg6jau');"></div>
+<div class="aspect-square bg-cover bg-center rounded-sm" data-alt="Iced coffee with melting ice cubes" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAa5YUoUo6GkBgz8hhpr_wPQ18WVB6HOlxl5FDG2EenpsnHPSRJckcVNG55ILPbSrTuNO2uW--uJ61jhRC7izU6d51QXUo9Hxgo_MetuMBSAKNKT18ezHAKqaLFwxlIeQRfntrAGMjhOxCxQW01vavV0HARJpOhgI1pYCPsUto7PgfC8otsgeSuDUdIisChjCibI9xM5VCrcVMAnotfokj8WnEJOAHaKLkVvGAv8PHWMH7GWe4LQfQz6BRJqlGpr6YrGdX5qBX1ldGQ');"></div>
+<div class="aspect-square bg-cover bg-center rounded-sm" data-alt="Cozy armchair in a corner of a library cafe" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAfR5htoaUjm1sG0NUObbOocF3YA1LwqAirGi-IdJymhrgsOzLg9krgWCcxdmGUFVz0J-dH2LajVnx1kLacFW-LKgQYdzVowW3_4UGTgSnciWfUBmXpPWVx9rZv2SG46yn2nBLR07M5ZbGb4pS0aQ7v_rQJq615SB2HPP1lFHmvV3KYlcW5sceFOLuFk76qJxYAOjYT3GYOtrBqtLOdncAl-f73WxohkzAdekbtGi_Cm8RpHRdbjzK3SbB7WVRtsp10K9z1X6fxSRc2');"></div>
+<div class="aspect-square bg-cover bg-center rounded-sm" data-alt="Woman reading a book in a sunlit cafe" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCkV2WiUjDlGAqfzukHxGdPvHqGkk9HNmEQZmjdY4U2B_xEHPcOM7VaQ5RyldZvehADfc3ZdNX4P5BwuBbFl2rzQjen-CawaU1AieSo6hwoQcO6U51MRtB_TJz8mLtHGSQ76KXa8dG7YR78i14I9Qk_8-vZjFM8bGERcVzqShapIoCQg7hp8DR7VAMYqDpFLp3IOfJ0xyanxvyPpwJVB1qkKH5hYK3ApYlPZIh45NLmRmLoLMEOlR6Sygi_GWM2QCMAutlIAKNwUqlT');"></div>
+<div class="aspect-square bg-cover bg-center rounded-sm" data-alt="Close up of a drip coffee maker" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDtapYqul9PlmZ_5qtwdgSyYKP63NSq0osKEdf18_XaLusIstTFUJT7KRf4QjAlaZOVU77d9WT9KMpjfpI7GVoXfhHH3WK3eBIyB878O9Z7Rgbt29Y1Qsbg77ZCULIJxRKvjGqJ71bn8OuE2mcWWpXfNP1TQKx7b_frj6rP6E2ffGZEaZiHMIfdYHk5asRkQlJXNh5NhenJrXjm7LQiLlWKoDLd1m3Ji5WYIrHbjXMrMooz6OwK4g2-FiqzPwrULlWp8bTtZhwB_Tf-');"></div>
+<div class="aspect-square bg-cover bg-center rounded-sm" data-alt="Caffeine molecules art on a cafe wall" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAPTJxXevhoIXzcJAi3i7UUWt4UWnacabjKBGI8MKKds4fYbNuvr2vEB1AJwgqvGz6c83sGiHKfYkkx8UhMTwJ4rgywEhk4R3TYOasJa0j7d8nLnXOA6OuxTeR7lIP7AWqIzukYK5LaMrBY6Odd-487AZk_MpyoyeV3kXxy1Vc3evr35aaXPeB5du7oYADc6RDCkjZUEoe0L10GD6nXavIQ48WNHpGIfZbcvMuhcd92LUSW4HHZHlL24qRz5asGhA1574NAY4Rs7J6i');"></div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<footer class="sticky bottom-0 z-20 flex h-20 items-center justify-between border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-4 pb-4 pt-2">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">rss_feed</span>
+<span class="text-[10px] font-bold">Feed</span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="text-[10px] font-bold">Map</span>
+</a>
+<div class="flex flex-1 flex-col items-center justify-center -mt-8">
+<button class="h-14 w-14 rounded-full bg-primary text-white shadow-lg shadow-primary/40 flex items-center justify-center hover:scale-105 active:scale-90 transition-all">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+<span class="text-[10px] font-bold mt-2 text-primary">Record</span>
+</div>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-[10px] font-bold">Calendar</span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="text-[10px] font-bold">My Page</span>
+</a>
+</footer>
+</div>
+</body></html>
