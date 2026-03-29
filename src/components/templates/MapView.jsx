@@ -9,6 +9,16 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import NavigationIcon from '@mui/icons-material/Navigation';
 import { CAFES } from '@/data/mockData';
 
+// Montage iOS 색상 토큰
+const M = {
+  labelNormal: 'rgba(0,0,0,0.88)',
+  labelAlternative: 'rgba(0,0,0,0.46)',
+  labelAssistive: 'rgba(0,0,0,0.28)',
+  lineNormal: 'rgba(0,0,0,0.08)',
+  bgAlt: '#F2F2F7',
+  primary: '#0000FF',
+};
+
 const FILTER_CHIPS = [
   { id: 'all', label: '전체' },
   { id: 'p1', label: '작업·공부' },
@@ -20,19 +30,19 @@ const FILTER_CHIPS = [
 ];
 
 const PINS = [
-  { id: 'c1', top: '32%', left: '22%' },
-  { id: 'c2', top: '48%', left: '54%' },
-  { id: 'c3', top: '20%', left: '64%' },
-  { id: 'c4', top: '66%', left: '30%' },
+  { id: 'c1', top: '30%', left: '24%' },
+  { id: 'c2', top: '50%', left: '56%' },
+  { id: 'c3', top: '20%', left: '62%' },
+  { id: 'c4', top: '64%', left: '32%' },
   { id: 'c5', top: '42%', left: '74%' },
-  { id: 'c6', top: '58%', left: '58%' },
+  { id: 'c6', top: '22%', left: '42%' },
 ];
 
 /**
  * MapView
  *
  * iOS MapView와 동일한 레이아웃.
- * 지도가 전체 화면을 채우고, 검색 바·필터 칩·위치 버튼·바텀 시트가 floating 오버레이로 표시.
+ * 지도 전체화면 + floating 검색 바·필터 칩·위치 버튼·바텀 시트.
  */
 export function MapView() {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -44,35 +54,27 @@ export function MapView() {
     <Box sx={{ position: 'relative', height: '100%', flex: 1, overflow: 'hidden' }}>
 
       {/* ── 지도 배경 ── */}
-      <Box
-        sx={{
-          position: 'absolute',
-          inset: 0,
-          bgcolor: '#E8EAE6',
-        }}
-      >
-        {/* 도로 */}
-        <Box sx={{ position: 'absolute', top: '43%', left: 0, right: 0, height: 4, bgcolor: '#FFFFFF', opacity: 0.85 }} />
-        <Box sx={{ position: 'absolute', top: '63%', left: 0, right: 0, height: 3, bgcolor: '#FFFFFF', opacity: 0.7 }} />
-        <Box sx={{ position: 'absolute', top: '25%', left: 0, right: 0, height: 2, bgcolor: '#FFFFFF', opacity: 0.55 }} />
-        <Box sx={{ position: 'absolute', left: '38%', top: 0, bottom: 0, width: 4, bgcolor: '#FFFFFF', opacity: 0.85 }} />
+      <Box sx={{ position: 'absolute', inset: 0, bgcolor: '#E8EAE6' }}>
+        {/* 도로 (수평) */}
+        <Box sx={{ position: 'absolute', top: '43%', left: 0, right: 0, height: 4, bgcolor: '#FFFFFF', opacity: 0.9 }} />
+        <Box sx={{ position: 'absolute', top: '62%', left: 0, right: 0, height: 3, bgcolor: '#FFFFFF', opacity: 0.7 }} />
+        <Box sx={{ position: 'absolute', top: '24%', left: 0, right: 0, height: 2, bgcolor: '#FFFFFF', opacity: 0.55 }} />
+        {/* 도로 (수직) */}
+        <Box sx={{ position: 'absolute', left: '38%', top: 0, bottom: 0, width: 4, bgcolor: '#FFFFFF', opacity: 0.9 }} />
         <Box sx={{ position: 'absolute', left: '62%', top: 0, bottom: 0, width: 3, bgcolor: '#FFFFFF', opacity: 0.7 }} />
         <Box sx={{ position: 'absolute', left: '18%', top: 0, bottom: 0, width: 2, bgcolor: '#FFFFFF', opacity: 0.55 }} />
-
         {/* 공원 */}
-        <Box sx={{ position: 'absolute', top: '12%', left: '8%', width: '24%', height: '22%', bgcolor: '#C8DCC0', borderRadius: 1 }} />
-        <Box sx={{ position: 'absolute', top: '52%', left: '52%', width: '14%', height: '11%', bgcolor: '#C8DCC0', borderRadius: 1 }} />
-
+        <Box sx={{ position: 'absolute', top: '12%', left: '8%', width: '22%', height: '20%', bgcolor: '#C8DCC0', borderRadius: '6px' }} />
+        <Box sx={{ position: 'absolute', top: '50%', left: '50%', width: '12%', height: '10%', bgcolor: '#C8DCC0', borderRadius: '4px' }} />
         {/* 한강 */}
-        <Box sx={{ position: 'absolute', top: '45%', left: 0, width: '32%', height: '6%', bgcolor: '#B5CDE8', borderRadius: 1 }} />
-
-        {/* 블록 건물군 */}
+        <Box sx={{ position: 'absolute', top: '45%', left: 0, width: '30%', height: '6%', bgcolor: '#B5CDE8', borderRadius: '0 6px 6px 0' }} />
+        {/* 건물 블록 */}
         <Box sx={{ position: 'absolute', top: '8%', left: '44%', width: '14%', height: '10%', bgcolor: '#D8D8D2', borderRadius: '4px' }} />
-        <Box sx={{ position: 'absolute', top: '28%', left: '8%', width: '20%', height: '12%', bgcolor: '#DDDDD7', borderRadius: '4px' }} />
-        <Box sx={{ position: 'absolute', top: '16%', left: '68%', width: '22%', height: '18%', bgcolor: '#D8D8D2', borderRadius: '4px' }} />
-        <Box sx={{ position: 'absolute', top: '68%', left: '12%', width: '16%', height: '12%', bgcolor: '#DDDDD7', borderRadius: '4px' }} />
-        <Box sx={{ position: 'absolute', top: '72%', left: '66%', width: '24%', height: '14%', bgcolor: '#D8D8D2', borderRadius: '4px' }} />
-        <Box sx={{ position: 'absolute', top: '35%', left: '44%', width: '10%', height: '8%', bgcolor: '#DDDDD7', borderRadius: '4px' }} />
+        <Box sx={{ position: 'absolute', top: '28%', left: '8%', width: '22%', height: '12%', bgcolor: '#DDDDD7', borderRadius: '4px' }} />
+        <Box sx={{ position: 'absolute', top: '16%', left: '68%', width: '24%', height: '18%', bgcolor: '#D8D8D2', borderRadius: '4px' }} />
+        <Box sx={{ position: 'absolute', top: '68%', left: '12%', width: '18%', height: '12%', bgcolor: '#DDDDD7', borderRadius: '4px' }} />
+        <Box sx={{ position: 'absolute', top: '70%', left: '66%', width: '26%', height: '14%', bgcolor: '#D8D8D2', borderRadius: '4px' }} />
+        <Box sx={{ position: 'absolute', top: '34%', left: '44%', width: '10%', height: '7%', bgcolor: '#DDDDD7', borderRadius: '4px' }} />
       </Box>
 
       {/* ── 핀 마커 ── */}
@@ -98,7 +100,7 @@ export function MapView() {
             {isSelected && (
               <Box
                 sx={{
-                  bgcolor: '#0000FF',
+                  bgcolor: M.primary,
                   color: '#FFFFFF',
                   px: 1.25,
                   py: 0.375,
@@ -115,7 +117,7 @@ export function MapView() {
             )}
             <LocationOnIcon
               sx={{
-                color: isSelected ? '#0000FF' : 'rgba(0,0,0,0.45)',
+                color: isSelected ? M.primary : 'rgba(0,0,0,0.4)',
                 fontSize: isSelected ? 36 : 28,
                 filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
               }}
@@ -125,34 +127,26 @@ export function MapView() {
       })}
 
       {/* ── 플로팅 검색 바 ── */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 12,
-          left: 16,
-          right: 16,
-          zIndex: 10,
-        }}
-      >
+      <Box sx={{ position: 'absolute', top: 12, left: 16, right: 16, zIndex: 10 }}>
         <Box
           sx={{
             bgcolor: '#FFFFFF',
             borderRadius: '12px',
-            boxShadow: '0 2px 12px rgba(0,0,0,0.14)',
+            boxShadow: '0 2px 12px rgba(0,0,0,0.12)',
             display: 'flex',
             alignItems: 'center',
             px: 1.5,
             height: 46,
           }}
         >
-          <SearchIcon sx={{ color: 'rgba(0,0,0,0.35)', fontSize: 20, mr: 1, flexShrink: 0 }} />
+          <SearchIcon sx={{ color: M.labelAssistive, fontSize: 20, mr: 1, flexShrink: 0 }} />
           <InputBase
             placeholder="카페 이름 또는 지역으로 검색"
             sx={{
               flex: 1,
               fontSize: '0.875rem',
-              color: 'rgba(0,0,0,0.87)',
-              '& input::placeholder': { color: 'rgba(0,0,0,0.35)' },
+              color: M.labelNormal,
+              '& input::placeholder': { color: M.labelAssistive },
             }}
           />
         </Box>
@@ -183,8 +177,8 @@ export function MapView() {
               px: 1.75,
               py: 0.625,
               borderRadius: '100px',
-              bgcolor: activeFilter === chip.id ? '#0000FF' : '#FFFFFF',
-              boxShadow: '0 1px 5px rgba(0,0,0,0.16)',
+              bgcolor: activeFilter === chip.id ? M.primary : '#FFFFFF',
+              boxShadow: '0 1px 5px rgba(0,0,0,0.14)',
               cursor: 'pointer',
               transition: 'all 0.15s',
             }}
@@ -193,7 +187,7 @@ export function MapView() {
               sx={{
                 fontSize: '0.78rem',
                 fontWeight: activeFilter === chip.id ? 600 : 400,
-                color: activeFilter === chip.id ? '#FFFFFF' : 'rgba(0,0,0,0.65)',
+                color: activeFilter === chip.id ? '#FFFFFF' : M.labelAlternative,
                 whiteSpace: 'nowrap',
                 lineHeight: 1.4,
               }}
@@ -208,7 +202,7 @@ export function MapView() {
       <Box
         sx={{
           position: 'absolute',
-          bottom: selectedCafe ? 202 : 24,
+          bottom: selectedCafe ? 208 : 24,
           right: 16,
           zIndex: 10,
           width: 44,
@@ -218,12 +212,12 @@ export function MapView() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.16)',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.14)',
           cursor: 'pointer',
           transition: 'bottom 0.3s',
         }}
       >
-        <MyLocationIcon sx={{ color: '#0000FF', fontSize: 20 }} />
+        <MyLocationIcon sx={{ color: M.primary, fontSize: 20 }} />
       </Box>
 
       {/* ── 바텀 시트: 선택된 카페 ── */}
@@ -238,7 +232,7 @@ export function MapView() {
             bgcolor: '#FFFFFF',
             borderRadius: '20px 20px 0 0',
             p: 2,
-            boxShadow: '0 -4px 20px rgba(0,0,0,0.1)',
+            boxShadow: '0 -4px 24px rgba(0,0,0,0.1)',
           }}
         >
           {/* 드래그 핸들 */}
@@ -246,7 +240,7 @@ export function MapView() {
             sx={{
               width: 36,
               height: 4,
-              bgcolor: 'rgba(0,0,0,0.14)',
+              bgcolor: M.lineNormal,
               borderRadius: 2,
               mx: 'auto',
               mb: 1.75,
@@ -258,32 +252,18 @@ export function MapView() {
               component="img"
               src={selectedCafe.photos[0]}
               alt={selectedCafe.name}
-              sx={{
-                width: 72,
-                height: 72,
-                borderRadius: '12px',
-                objectFit: 'cover',
-                flexShrink: 0,
-              }}
+              sx={{ width: 72, height: 72, borderRadius: '12px', objectFit: 'cover', flexShrink: 0 }}
             />
             <Box sx={{ flex: 1, minWidth: 0 }}>
               <Typography
-                sx={{
-                  fontSize: '0.9rem',
-                  fontWeight: 700,
-                  color: 'rgba(0,0,0,0.87)',
-                  mb: 0.5,
-                }}
+                sx={{ fontSize: '0.9rem', fontWeight: 700, color: M.labelNormal, mb: 0.5 }}
               >
                 {selectedCafe.name}
               </Typography>
-              <Typography
-                noWrap
-                sx={{ fontSize: '0.75rem', color: 'rgba(0,0,0,0.46)', mb: 0.25 }}
-              >
+              <Typography noWrap sx={{ fontSize: '0.75rem', color: M.labelAlternative, mb: 0.25 }}>
                 {selectedCafe.address}
               </Typography>
-              <Typography sx={{ fontSize: '0.75rem', color: 'rgba(0,0,0,0.46)' }}>
+              <Typography sx={{ fontSize: '0.75rem', color: M.labelAlternative }}>
                 {selectedCafe.hours}
               </Typography>
             </Box>
@@ -295,7 +275,7 @@ export function MapView() {
                 flex: 1,
                 height: 44,
                 borderRadius: '12px',
-                border: '1px solid rgba(0,0,0,0.12)',
+                border: `1px solid ${M.lineNormal}`,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -303,8 +283,8 @@ export function MapView() {
                 cursor: 'pointer',
               }}
             >
-              <NavigationIcon sx={{ fontSize: 16, color: 'rgba(0,0,0,0.55)' }} />
-              <Typography sx={{ fontSize: '0.875rem', fontWeight: 600, color: 'rgba(0,0,0,0.6)' }}>
+              <NavigationIcon sx={{ fontSize: 16, color: M.labelAlternative }} />
+              <Typography sx={{ fontSize: '0.875rem', fontWeight: 600, color: M.labelAlternative }}>
                 길찾기
               </Typography>
             </Box>
@@ -313,7 +293,7 @@ export function MapView() {
                 flex: 1,
                 height: 44,
                 borderRadius: '12px',
-                bgcolor: '#0000FF',
+                bgcolor: M.primary,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',

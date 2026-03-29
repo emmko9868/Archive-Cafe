@@ -11,14 +11,18 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { TAGS } from '@/data/mockData';
 
+// Montage iOS 색상 토큰
+const M = {
+  labelNormal: 'rgba(0,0,0,0.88)',
+  labelAlternative: 'rgba(0,0,0,0.46)',
+  labelAssistive: 'rgba(0,0,0,0.28)',
+  lineNormal: 'rgba(0,0,0,0.08)',
+  bgAlt: '#F2F2F7',
+  primary: '#0000FF',
+};
+
 // iOS RecordView DrinkType enum 기준
-const DRINK_TYPES = [
-  '에스프레소',
-  '라떼',
-  '시그니처',
-  '논커피',
-  '디저트',
-];
+const DRINK_TYPES = ['에스프레소', '라떼', '시그니처', '논커피', '디저트'];
 
 const PURPOSE_TAGS = TAGS.filter((t) => t.category === 'purpose');
 const THEME_TAGS = TAGS.filter((t) => t.category === 'theme');
@@ -27,7 +31,7 @@ const THEME_TAGS = TAGS.filter((t) => t.category === 'theme');
  * RecordView
  *
  * iOS RecordView와 동일한 레이아웃.
- * 캡슐 검색 바 → 사진 그리드(4슬롯) → 음료 칩 → 태그 칩 → 방문 날짜 → 메모 → 공개 설정 → 저장하기.
+ * 캡슐 검색 → 사진 4슬롯 → 음료 칩 → 태그 칩 → 방문 날짜 → 메모 → 공개 설정 → 저장하기.
  */
 export function RecordView() {
   const [selectedDrink, setSelectedDrink] = useState('');
@@ -42,7 +46,7 @@ export function RecordView() {
     );
   };
 
-  const allTagGroups = [
+  const tagGroups = [
     { label: '목적별', tags: PURPOSE_TAGS },
     { label: '테마별', tags: THEME_TAGS },
   ];
@@ -56,14 +60,14 @@ export function RecordView() {
           height: 52,
           display: 'flex',
           alignItems: 'center',
-          borderBottom: '1px solid rgba(0,0,0,0.06)',
+          borderBottom: `1px solid ${M.lineNormal}`,
           position: 'sticky',
           top: 0,
           bgcolor: '#FFFFFF',
           zIndex: 10,
         }}
       >
-        <Typography sx={{ fontSize: '1.1rem', fontWeight: 700, color: 'rgba(0,0,0,0.87)' }}>
+        <Typography sx={{ fontSize: '1.1rem', fontWeight: 700, color: M.labelNormal }}>
           카페 기록하기
         </Typography>
       </Box>
@@ -75,56 +79,48 @@ export function RecordView() {
             sx={{
               display: 'flex',
               alignItems: 'center',
-              bgcolor: '#F5F5F7',
+              bgcolor: M.bgAlt,
               borderRadius: '100px',
               px: 1.75,
               height: 46,
             }}
           >
-            <SearchIcon sx={{ color: 'rgba(0,0,0,0.35)', fontSize: 20, mr: 1, flexShrink: 0 }} />
+            <SearchIcon sx={{ color: M.labelAssistive, fontSize: 20, mr: 1, flexShrink: 0 }} />
             <InputBase
               placeholder="어떤 카페를 방문했나요?"
               sx={{
                 flex: 1,
                 fontSize: '0.875rem',
-                color: 'rgba(0,0,0,0.87)',
-                '& input::placeholder': { color: 'rgba(0,0,0,0.35)' },
+                color: M.labelNormal,
+                '& input::placeholder': { color: M.labelAssistive },
               }}
             />
           </Box>
         </Box>
 
-        {/* ── 사진 그리드 (2×2, 4슬롯) ── */}
+        {/* ── 사진 그리드 (1+3 슬롯) ── */}
         <Box sx={{ px: 2, pb: 2 }}>
-          <Box
-            sx={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
-              gap: 1,
-            }}
-          >
+          <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 1 }}>
             {[...Array(4)].map((_, i) => (
               <Box
                 key={i}
                 sx={{
                   aspectRatio: '1',
-                  bgcolor: '#F5F5F7',
+                  bgcolor: M.bgAlt,
                   borderRadius: '10px',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
                   justifyContent: 'center',
                   cursor: 'pointer',
-                  color: 'rgba(0,0,0,0.28)',
-                  border: i === 0 ? '1px dashed rgba(0,0,0,0.18)' : 'none',
+                  border: i === 0 ? `1.5px dashed ${M.lineNormal}` : 'none',
+                  color: M.labelAssistive,
                 }}
               >
                 {i === 0 && (
                   <>
                     <AddPhotoAlternateOutlinedIcon sx={{ fontSize: 22, mb: 0.25 }} />
-                    <Typography sx={{ fontSize: '0.6rem', color: 'rgba(0,0,0,0.35)' }}>
-                      추가
-                    </Typography>
+                    <Typography sx={{ fontSize: '0.6rem', color: M.labelAssistive }}>추가</Typography>
                   </>
                 )}
               </Box>
@@ -134,14 +130,7 @@ export function RecordView() {
 
         {/* ── 음료 종류 ── */}
         <Box sx={{ px: 2, pb: 2 }}>
-          <Typography
-            sx={{
-              fontSize: '0.8rem',
-              fontWeight: 600,
-              color: 'rgba(0,0,0,0.55)',
-              mb: 1,
-            }}
-          >
+          <Typography sx={{ fontSize: '0.8rem', fontWeight: 600, color: M.labelAlternative, mb: 1 }}>
             어떤 음료를 마셨나요?
           </Typography>
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.875 }}>
@@ -153,9 +142,9 @@ export function RecordView() {
                   px: 1.75,
                   py: 0.625,
                   borderRadius: '100px',
-                  bgcolor: selectedDrink === drink ? '#0000FF' : 'transparent',
+                  bgcolor: selectedDrink === drink ? M.primary : 'transparent',
                   border: '1px solid',
-                  borderColor: selectedDrink === drink ? '#0000FF' : 'rgba(0,0,0,0.14)',
+                  borderColor: selectedDrink === drink ? M.primary : M.lineNormal,
                   cursor: 'pointer',
                   transition: 'all 0.15s',
                 }}
@@ -164,7 +153,7 @@ export function RecordView() {
                   sx={{
                     fontSize: '0.8rem',
                     fontWeight: selectedDrink === drink ? 600 : 400,
-                    color: selectedDrink === drink ? '#FFFFFF' : 'rgba(0,0,0,0.65)',
+                    color: selectedDrink === drink ? '#FFFFFF' : M.labelAlternative,
                     lineHeight: 1.4,
                   }}
                 >
@@ -177,25 +166,12 @@ export function RecordView() {
 
         {/* ── 태그 선택 ── */}
         <Box sx={{ px: 2, pb: 2 }}>
-          <Typography
-            sx={{
-              fontSize: '0.8rem',
-              fontWeight: 600,
-              color: 'rgba(0,0,0,0.55)',
-              mb: 1,
-            }}
-          >
+          <Typography sx={{ fontSize: '0.8rem', fontWeight: 600, color: M.labelAlternative, mb: 1 }}>
             이 카페는 어떤 곳인가요?
           </Typography>
-          {allTagGroups.map((group) => (
+          {tagGroups.map((group) => (
             <Box key={group.label} sx={{ mb: 1.25 }}>
-              <Typography
-                sx={{
-                  fontSize: '0.7rem',
-                  color: 'rgba(0,0,0,0.38)',
-                  mb: 0.75,
-                }}
-              >
+              <Typography sx={{ fontSize: '0.7rem', color: M.labelAssistive, mb: 0.75 }}>
                 {group.label}
               </Typography>
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75 }}>
@@ -207,9 +183,9 @@ export function RecordView() {
                       px: 1.5,
                       py: 0.5,
                       borderRadius: '100px',
-                      bgcolor: selectedTags.includes(tag.id) ? '#0000FF' : 'transparent',
+                      bgcolor: selectedTags.includes(tag.id) ? M.primary : 'transparent',
                       border: '1px solid',
-                      borderColor: selectedTags.includes(tag.id) ? '#0000FF' : 'rgba(0,0,0,0.14)',
+                      borderColor: selectedTags.includes(tag.id) ? M.primary : M.lineNormal,
                       cursor: 'pointer',
                       transition: 'all 0.15s',
                     }}
@@ -218,7 +194,7 @@ export function RecordView() {
                       sx={{
                         fontSize: '0.75rem',
                         fontWeight: selectedTags.includes(tag.id) ? 600 : 400,
-                        color: selectedTags.includes(tag.id) ? '#FFFFFF' : 'rgba(0,0,0,0.65)',
+                        color: selectedTags.includes(tag.id) ? '#FFFFFF' : M.labelAlternative,
                         lineHeight: 1.4,
                       }}
                     >
@@ -235,7 +211,7 @@ export function RecordView() {
         <Box sx={{ px: 2, pb: 1.5 }}>
           <Box
             sx={{
-              bgcolor: '#F5F5F7',
+              bgcolor: M.bgAlt,
               borderRadius: '12px',
               px: 2,
               height: 52,
@@ -245,12 +221,12 @@ export function RecordView() {
             }}
           >
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <CalendarTodayIcon sx={{ fontSize: 18, color: '#0000FF' }} />
-              <Typography sx={{ fontSize: '0.875rem', fontWeight: 500, color: 'rgba(0,0,0,0.87)' }}>
+              <CalendarTodayIcon sx={{ fontSize: 18, color: M.primary }} />
+              <Typography sx={{ fontSize: '0.875rem', fontWeight: 500, color: M.labelNormal }}>
                 방문 날짜
               </Typography>
             </Box>
-            <Typography sx={{ fontSize: '0.875rem', color: 'rgba(0,0,0,0.46)' }}>
+            <Typography sx={{ fontSize: '0.875rem', color: M.labelAlternative }}>
               2026. 03. 29
             </Typography>
           </Box>
@@ -258,14 +234,7 @@ export function RecordView() {
 
         {/* ── 메모 ── */}
         <Box sx={{ px: 2, pb: 1.5 }}>
-          <Box
-            sx={{
-              bgcolor: '#F5F5F7',
-              borderRadius: '12px',
-              p: 1.5,
-              minHeight: 80,
-            }}
-          >
+          <Box sx={{ bgcolor: M.bgAlt, borderRadius: '12px', p: 1.5, minHeight: 80 }}>
             <InputBase
               multiline
               minRows={3}
@@ -275,9 +244,9 @@ export function RecordView() {
               sx={{
                 width: '100%',
                 fontSize: '0.875rem',
-                color: 'rgba(0,0,0,0.87)',
-                '& textarea::placeholder': { color: 'rgba(0,0,0,0.35)' },
+                color: M.labelNormal,
                 alignItems: 'flex-start',
+                '& textarea::placeholder': { color: M.labelAssistive },
               }}
             />
           </Box>
@@ -287,7 +256,7 @@ export function RecordView() {
         <Box sx={{ px: 2, pb: 2 }}>
           <Box
             sx={{
-              bgcolor: '#F5F5F7',
+              bgcolor: M.bgAlt,
               borderRadius: '12px',
               px: 2,
               height: 52,
@@ -296,14 +265,14 @@ export function RecordView() {
               justifyContent: 'space-between',
             }}
           >
-            <Typography sx={{ fontSize: '0.875rem', fontWeight: 500, color: 'rgba(0,0,0,0.87)' }}>
+            <Typography sx={{ fontSize: '0.875rem', fontWeight: 500, color: M.labelNormal }}>
               공개 설정
             </Typography>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
               <Typography
                 sx={{
                   fontSize: '0.8rem',
-                  color: isPublic ? '#0000FF' : 'rgba(0,0,0,0.38)',
+                  color: isPublic ? M.primary : M.labelAssistive,
                   fontWeight: isPublic ? 600 : 400,
                 }}
               >
@@ -314,8 +283,8 @@ export function RecordView() {
                 onChange={(e) => setIsPublic(e.target.checked)}
                 size="small"
                 sx={{
-                  '& .MuiSwitch-switchBase.Mui-checked': { color: '#0000FF' },
-                  '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': { bgcolor: '#0000FF' },
+                  '& .MuiSwitch-switchBase.Mui-checked': { color: M.primary },
+                  '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': { bgcolor: M.primary },
                 }}
               />
             </Box>
@@ -323,14 +292,14 @@ export function RecordView() {
         </Box>
       </Box>
 
-      {/* ── ActionArea: 저장하기 버튼 ── */}
+      {/* ── ActionArea: 저장하기 ── */}
       <Box
         sx={{
           px: 2,
           pb: 2,
           pt: 1,
           bgcolor: '#FFFFFF',
-          borderTop: '1px solid rgba(0,0,0,0.06)',
+          borderTop: `1px solid ${M.lineNormal}`,
           flexShrink: 0,
         }}
       >
@@ -339,7 +308,7 @@ export function RecordView() {
           sx={{
             height: 52,
             borderRadius: '12px',
-            bgcolor: '#0000FF',
+            bgcolor: M.primary,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',

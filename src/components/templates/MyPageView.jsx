@@ -8,13 +8,23 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { USER, RECORDS, CAFES } from '@/data/mockData';
 
+// Montage iOS 색상 토큰
+const M = {
+  labelNormal: 'rgba(0,0,0,0.88)',
+  labelAlternative: 'rgba(0,0,0,0.46)',
+  labelAssistive: 'rgba(0,0,0,0.28)',
+  lineNormal: 'rgba(0,0,0,0.08)',
+  bgAlt: '#F2F2F7',
+  primary: '#0000FF',
+};
+
 const TABS = ['내 기록', '저장한 카페'];
 
 /**
  * MyPageView
  *
  * iOS ProfileView와 동일한 레이아웃.
- * 아바타·닉네임·팔로워 row → 통계 row (alt bg) → SegmentedControl → 사진 그리드 또는 저장 카페 목록.
+ * 아바타·닉네임·기록/팔로잉/팔로워 row → 통계 row (alt bg) → SegmentedControl → 사진 그리드 or 저장 카페 목록.
  */
 export function MyPageView() {
   const [activeTab, setActiveTab] = useState(0);
@@ -30,36 +40,26 @@ export function MyPageView() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          borderBottom: '1px solid rgba(0,0,0,0.06)',
+          borderBottom: `1px solid ${M.lineNormal}`,
           position: 'sticky',
           top: 0,
           bgcolor: '#FFFFFF',
           zIndex: 10,
         }}
       >
-        <Typography sx={{ fontSize: '1.1rem', fontWeight: 700, color: 'rgba(0,0,0,0.87)' }}>
+        <Typography sx={{ fontSize: '1.1rem', fontWeight: 700, color: M.labelNormal }}>
           마이페이지
         </Typography>
-        <SettingsOutlinedIcon sx={{ fontSize: 22, color: 'rgba(0,0,0,0.55)', cursor: 'pointer' }} />
+        <SettingsOutlinedIcon sx={{ fontSize: 22, color: M.labelAlternative, cursor: 'pointer' }} />
       </Box>
 
       {/* ── 프로필 헤더 ── */}
-      <Box
-        sx={{
-          px: 2,
-          pt: 2.5,
-          pb: 2,
-          display: 'flex',
-          alignItems: 'center',
-          gap: 2,
-        }}
-      >
-        {/* 아바타 */}
+      <Box sx={{ px: 2, pt: 2.5, pb: 2, display: 'flex', alignItems: 'center', gap: 2.5 }}>
         <Avatar
           sx={{
             width: 72,
             height: 72,
-            bgcolor: '#0000FF',
+            bgcolor: M.primary,
             fontSize: '1.5rem',
             fontWeight: 700,
             flexShrink: 0,
@@ -68,45 +68,31 @@ export function MyPageView() {
           {USER.nickname[0]}
         </Avatar>
 
-        {/* 닉네임 + 팔로워 수치 */}
-        <Box sx={{ flex: 1 }}>
-          <Typography
-            sx={{
-              fontSize: '1rem',
-              fontWeight: 700,
-              color: 'rgba(0,0,0,0.87)',
-              mb: 0.75,
-            }}
-          >
-            {USER.nickname}
-          </Typography>
-          <Box sx={{ display: 'flex', gap: 2.5 }}>
-            <Box sx={{ textAlign: 'center' }}>
-              <Typography sx={{ fontSize: '0.95rem', fontWeight: 700, color: 'rgba(0,0,0,0.87)', lineHeight: 1 }}>
-                {RECORDS.length}
+        <Box sx={{ flex: 1, display: 'flex', gap: 3 }}>
+          {[
+            { label: '기록', value: RECORDS.length },
+            { label: '팔로잉', value: USER.followingIds.length },
+            { label: '팔로워', value: 24 },
+          ].map((stat) => (
+            <Box key={stat.label} sx={{ textAlign: 'center' }}>
+              <Typography
+                sx={{ fontSize: '1rem', fontWeight: 700, color: M.labelNormal, lineHeight: 1 }}
+              >
+                {stat.value}
               </Typography>
-              <Typography sx={{ fontSize: '0.68rem', color: 'rgba(0,0,0,0.46)', mt: 0.25 }}>
-                기록
+              <Typography sx={{ fontSize: '0.68rem', color: M.labelAlternative, mt: 0.375 }}>
+                {stat.label}
               </Typography>
             </Box>
-            <Box sx={{ textAlign: 'center' }}>
-              <Typography sx={{ fontSize: '0.95rem', fontWeight: 700, color: 'rgba(0,0,0,0.87)', lineHeight: 1 }}>
-                {USER.followingIds.length}
-              </Typography>
-              <Typography sx={{ fontSize: '0.68rem', color: 'rgba(0,0,0,0.46)', mt: 0.25 }}>
-                팔로잉
-              </Typography>
-            </Box>
-            <Box sx={{ textAlign: 'center' }}>
-              <Typography sx={{ fontSize: '0.95rem', fontWeight: 700, color: 'rgba(0,0,0,0.87)', lineHeight: 1 }}>
-                24
-              </Typography>
-              <Typography sx={{ fontSize: '0.68rem', color: 'rgba(0,0,0,0.46)', mt: 0.25 }}>
-                팔로워
-              </Typography>
-            </Box>
-          </Box>
+          ))}
         </Box>
+      </Box>
+
+      {/* 닉네임 */}
+      <Box sx={{ px: 2, mb: 2 }}>
+        <Typography sx={{ fontSize: '0.875rem', fontWeight: 700, color: M.labelNormal }}>
+          {USER.nickname}
+        </Typography>
       </Box>
 
       {/* ── 통계 row (alt bg) ── */}
@@ -114,15 +100,15 @@ export function MyPageView() {
         sx={{
           mx: 2,
           mb: 2,
-          bgcolor: '#F5F5F7',
+          bgcolor: M.bgAlt,
           borderRadius: '12px',
           display: 'flex',
         }}
       >
         {[
           { label: '방문한 카페', value: RECORDS.length },
-          { label: '선호 음료', value: '아메리카노' },
-          { label: '선호 테마', value: '루프탑' },
+          { label: '선호 음료', value: '말차라떼' },
+          { label: '선호 테마', value: '한옥' },
         ].map((stat, i) => (
           <Box
             key={stat.label}
@@ -131,21 +117,15 @@ export function MyPageView() {
               py: 1.5,
               px: 0.5,
               textAlign: 'center',
-              borderRight: i < 2 ? '1px solid rgba(0,0,0,0.08)' : 'none',
+              borderRight: i < 2 ? `1px solid ${M.lineNormal}` : 'none',
             }}
           >
             <Typography
-              sx={{
-                fontSize: '1rem',
-                fontWeight: 700,
-                color: '#0000FF',
-                lineHeight: 1,
-                mb: 0.375,
-              }}
+              sx={{ fontSize: '1rem', fontWeight: 700, color: M.primary, lineHeight: 1, mb: 0.375 }}
             >
               {stat.value}
             </Typography>
-            <Typography sx={{ fontSize: '0.68rem', color: 'rgba(0,0,0,0.46)' }}>
+            <Typography sx={{ fontSize: '0.68rem', color: M.labelAlternative }}>
               {stat.label}
             </Typography>
           </Box>
@@ -157,7 +137,7 @@ export function MyPageView() {
         <Box
           sx={{
             display: 'flex',
-            bgcolor: '#F5F5F7',
+            bgcolor: M.bgAlt,
             borderRadius: '10px',
             p: '3px',
           }}
@@ -181,7 +161,7 @@ export function MyPageView() {
                 sx={{
                   fontSize: '0.8rem',
                   fontWeight: activeTab === i ? 700 : 500,
-                  color: activeTab === i ? 'rgba(0,0,0,0.87)' : 'rgba(0,0,0,0.46)',
+                  color: activeTab === i ? M.labelNormal : M.labelAlternative,
                 }}
               >
                 {tab}
@@ -224,7 +204,7 @@ export function MyPageView() {
         <Box sx={{ mt: 1 }}>
           {savedCafes.length === 0 ? (
             <Box sx={{ py: 6, textAlign: 'center' }}>
-              <Typography sx={{ fontSize: '0.875rem', color: 'rgba(0,0,0,0.38)' }}>
+              <Typography sx={{ fontSize: '0.875rem', color: M.labelAssistive }}>
                 저장한 카페가 없어요.
               </Typography>
             </Box>
@@ -238,7 +218,7 @@ export function MyPageView() {
                   gap: 1.5,
                   px: 2,
                   py: 1.5,
-                  borderBottom: '1px solid rgba(0,0,0,0.06)',
+                  borderBottom: `1px solid ${M.lineNormal}`,
                   cursor: 'pointer',
                 }}
               >
@@ -246,37 +226,23 @@ export function MyPageView() {
                   component="img"
                   src={cafe.photos[0]}
                   alt={cafe.name}
-                  sx={{
-                    width: 56,
-                    height: 56,
-                    borderRadius: '10px',
-                    objectFit: 'cover',
-                    flexShrink: 0,
-                  }}
+                  sx={{ width: 56, height: 56, borderRadius: '10px', objectFit: 'cover', flexShrink: 0 }}
                 />
                 <Box sx={{ flex: 1, minWidth: 0 }}>
                   <Typography
-                    sx={{
-                      fontSize: '0.875rem',
-                      fontWeight: 700,
-                      color: 'rgba(0,0,0,0.87)',
-                      mb: 0.25,
-                    }}
+                    sx={{ fontSize: '0.875rem', fontWeight: 700, color: M.labelNormal, mb: 0.25 }}
                     noWrap
                   >
                     {cafe.name}
                   </Typography>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.375 }}>
-                    <LocationOnIcon sx={{ fontSize: 12, color: 'rgba(0,0,0,0.35)' }} />
-                    <Typography
-                      noWrap
-                      sx={{ fontSize: '0.72rem', color: 'rgba(0,0,0,0.46)' }}
-                    >
+                    <LocationOnIcon sx={{ fontSize: 12, color: M.labelAssistive }} />
+                    <Typography noWrap sx={{ fontSize: '0.72rem', color: M.labelAlternative }}>
                       {cafe.address}
                     </Typography>
                   </Box>
                 </Box>
-                <ChevronRightIcon sx={{ fontSize: 18, color: 'rgba(0,0,0,0.25)', flexShrink: 0 }} />
+                <ChevronRightIcon sx={{ fontSize: 18, color: M.labelAssistive, flexShrink: 0 }} />
               </Box>
             ))
           )}
